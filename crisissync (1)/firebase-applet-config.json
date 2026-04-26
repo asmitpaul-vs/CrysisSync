@@ -1,10 +1,10 @@
 {
-  "projectId": "gen-lang-client-0023623173",
+  "projectId": "crysissync",
   "appId": "1:949286803708:web:4299e7c57bdbb5d15f5f79",
   "apiKey": "AIzaSyDbAQSaJ4QmxShVMXF-6dYt83cG7T-W2XM",
   "authDomain": "crysissync.firebaseapp.com",
   "firestoreDatabaseId": "ai-studio-6f4d0840-1fec-4204-8f94-4d63775de45c",
-  "storageBucket": "gen-lang-client-0023623173.firebasestorage.app",
+  "storageBucket": "crysissync.firebasestorage.app",
   "messagingSenderId": "949286803708",
   "measurementId": ""
 }
