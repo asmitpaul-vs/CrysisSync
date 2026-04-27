@@ -33,7 +33,6 @@ pids
 *.pem
 *.key
 auth_token.json
-firebase-env.json
 firebase-applet-config.json
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
