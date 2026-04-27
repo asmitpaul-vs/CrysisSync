@@ -2,17 +2,13 @@
 # 🚀 DEPENDENCIES
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 node_modules/
-.pnp
-.pnp.js
-jspm_packages/
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 🏗️ BUILD & OUTPUT
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 dist/
 dist-ssr/
-out/
-.next/
+.vite/
 build/
 *.local
 *.tgz
@@ -21,12 +17,6 @@ build/
 # 📜 LOGS & DIAGNOSTICS
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 pids
 *.pid
 *.seed
@@ -43,6 +33,8 @@ pids
 *.pem
 *.key
 auth_token.json
+firebase-env.json
+firebase-applet-config.json
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 🔥 FIREBASE
@@ -51,6 +43,7 @@ auth_token.json
 firebase-debug.log*
 firestore-debug.log*
 ui-debug.log*
+firebase-export-*/
 # .firebaserc # Uncomment if you want to keep project aliases private
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -60,12 +53,6 @@ ui-debug.log*
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/settings.json
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
 .eslintcache
 .stylelintcache
 
@@ -90,5 +77,7 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
-crisissync (1)/firebase-env.json
-firebase-env.json
+
+# --- Backup & Duplicates ---
+crisissync*/
+*-copy.*
