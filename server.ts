@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -142,16 +143,32 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(__dirname, 'dist');
-    app.use(express.static(distPath));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
+    // In Vercel, static files are served by the platform
+    // but we keep this as fallback for other environments
+    const distPath = path.join(process.cwd(), 'dist');
+    if (fs.existsSync(distPath)) {
+      app.use(express.static(distPath));
+      app.get('*', (req, res) => {
+        res.sendFile(path.join(distPath, 'index.html'));
+      });
+    }
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Tactical Hub running on http://localhost:${PORT}`);
+  return app;
+}
+
+const appPromise = startServer();
+
+// For local development
+if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
+  appPromise.then(app => {
+    app.listen(3000, "0.0.0.0", () => {
+      console.log(`Tactical Hub running on http://localhost:3000`);
+    });
   });
 }
 
-startServer();
+export default async (req: any, res: any) => {
+  const app = await appPromise;
+  return app(req, res);
+};
